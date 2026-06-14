@@ -9,8 +9,8 @@ const listingSchema = new Schema({
     description: String,
     image: {
         type: String,
-        default: "https://i.pinimg.com/736x/43/14/0a/43140a3803e5f1b39c1ffac1a35a3ec7.jpg",
-        set: (v) => v === "" ? "https://i.pinimg.com/736x/43/14/0a/43140a3803e5f1b39c1ffac1a35a3ec7.jpg" : v,
+        default: "https://i.pinimg.com/736x/2e/28/9b/2e289b798932a29b741714391d84f27e.jpg",
+        set: (v) => v === "" ? "https://i.pinimg.com/736x/2e/28/9b/2e289b798932a29b741714391d84f27e.jpg" : v,
     },
     price: Number,
     country: String,
