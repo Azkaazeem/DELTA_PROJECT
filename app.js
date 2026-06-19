@@ -32,6 +32,16 @@ app.get("/", (req, res) => {
     console.log("Backend is running successfully!");
 })
 
+const sessionOptions = {
+    secret: "mysecretString",
+    resave: false,
+    saveUninitialize: true,
+    cookie: {
+        expire: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+    }
+}
+
 app.use("/listings" , listings);
 app.use("/listings/:id/reviews" , review)
 
