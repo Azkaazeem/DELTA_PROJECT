@@ -1,0 +1,57 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+    <section class="signup-page">
+        <div class="signup-card">
+            <div class="signup-brand-mark">
+                <i class="fa-solid fa-compass"></i>
+            </div>
+
+            <div class="signup-form-header">
+                <p class="signup-kicker">Create account</p>
+                <h1>Sign up to WanderLust</h1>
+                <p>Enter your details and start saving your favorite stays.</p>
+            </div>
+
+            <form action="/signup" method="POST" class="needs-validation signup-form" novalidate>
+                <div class="mb-3">
+                    <label for="username" class="form-label">User name</label>
+                    <div class="signup-input-group">
+                        <i class="fa-regular fa-user"></i>
+                        <input id="username" name="username" placeholder="Enter your user name" type="text"
+                            class="form-control" required />
+                    </div>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter a valid username.</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <div class="signup-input-group">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input id="email" name="email" placeholder="name@example.com" type="email" class="form-control"
+                            required />
+                    </div>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="signup-input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input id="password" name="password" placeholder="Create a secure password" type="password"
+                            class="form-control" required />
+                    </div>
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please enter a valid password.</div>
+                </div>
+
+                <button class="btn signup-btn" type="submit">
+                    <span>Create account</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <a href="/login" style="text-decoration: none;"><p class="signup-footer-note">Already planning a trip? Login from the navigation to continue.</p></a>
+        </div>
+    </section>
