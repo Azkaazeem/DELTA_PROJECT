@@ -1,41 +1,13 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true});
-const Listing = require("../models/listing.js");
-const Review = require("../models/reviews.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const { validateReview, isReviewAuthor } = require("../middleware.js");
+const reviewController = require("../controllers/reviews.js");
 
 // POST ROUTE
-router.post("/", validateReview , wrapAsync(async (req, res) => {
-    let listing = await Listing.findById(req.params.id);
-    console.log(req.body.review);
-
-    let newReview = new Review(req.body.review);
-    newReview.author = req.user._id;
-    console.log(newReview);
-    
-    listing.reviews.push(newReview);
-
-    await newReview.save();
-    await listing.save();
-    console.log("New Review Saved");
-    req.flash("success" , "New Review created successfully");
-    res.redirect(`/listings/${req.params.id}`);
-}));
+router.post("/", validateReview , wrapAsync(reviewController.index));
 
 // DELETE ROUTE
-router.delete("/:reviewId" , isReviewAuthor , wrapAsync(
-    async(req,res) => {
-        let { id , reviewId } = req.params;
-        await Listing.findByIdAndUpdate(id , {
-            $pull: {
-                reviews: reviewId
-            }
-        });
-        await Review.findByIdAndDelete(reviewId);
-        req.flash("success" , "Delete successfully");
-        res.redirect(`/listings/${id}`);
-    }
-));
+router.delete("/:reviewId" , isReviewAuthor , wrapAsync(reviewController.destroyReview));
 
 module.exports = router;
