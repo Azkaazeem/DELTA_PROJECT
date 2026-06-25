@@ -6,7 +6,7 @@
         <h1>Create a new listing</h1>
         <br>
         <div class="col=8 offset-2">
-            <form method="POST" action="/listings"> 
+            <form method="POST" action="/listings" enctype="multipart/form-data"> 
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>
@@ -21,7 +21,7 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Image</label>
-            <input name="listing[image]" placeholder="enter image URL/Link" type="text" class="form-control"/>
+            <input name="listing[image]" type="file" class="form-control"/>
             <div class="valid-feedback">Image looks Good!</div>
             <div class="invalid-feedback">Please enter valid Image!</div> <br />  <br />
         </div>
