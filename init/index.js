@@ -18,7 +18,7 @@ const initDB = async () => {
     // Map over the data to extract the url from the image object
     const mappedData = initData.data.map((obj) => ({
         ...obj,
-        image: obj.image.url, owner: "6a38f03845599b09710bfd40"
+        owner: "6a38f03845599b09710bfd40"
     }))
     
     await Listing.deleteMany({});
