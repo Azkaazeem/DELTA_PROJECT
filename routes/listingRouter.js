@@ -21,7 +21,7 @@ router.get("/new", isLoggedIn , listingController.newListing);
 // /:ID PATHS
 router.route("/:id")
 .get( listingController.showListing) // SHOW ROUTE
-.put( isLoggedIn , isOwner , validateListing, wrapAsync(listingController.updateListing)) // UPDATE ROUTE
+.put( isLoggedIn , isOwner , upload.single("listing[image]") , validateListing, wrapAsync(listingController.updateListing)) // UPDATE ROUTE
 .delete( isLoggedIn , isOwner , listingController.destroyListing) // DESTROY ROUTE
 
 // EDIT ROUTE

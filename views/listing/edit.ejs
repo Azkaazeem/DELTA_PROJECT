@@ -4,7 +4,7 @@
     <br> <br>
     <h1>Create a new listing</h1>
     <br>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation"> 
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data"> 
         <div class="md-3">
             <label for="title" class="form-label">Title</label>
             <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
@@ -17,11 +17,13 @@
             <div class="valid-feedback">Description looks Good!</div>
             <div class="invalid-feedback">Please enter valid description!</div>   <br /> <br />
         </div>
-        <div class="md-3">
-            <label for="image" class="form-label">Image</label>
-            <input name="listing[image]" value="<%= listing.image %>" type="text" class="form-control" required/>
-            <div class="valid-feedback">Profile picture looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Profile picture!</div> <br />  <br />
+        <div class="mb-3">
+            <h4>Your current Image</h4>
+            <img src="<%= originalImageUrl %>" alt="">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload your new image</label>
+            <input name="listing[image]" type="file" class="form-control"/>
         </div>
         <div class="md-3">
             <label for="price" class="form-label">Price</label>
