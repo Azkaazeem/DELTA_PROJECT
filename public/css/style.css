@@ -266,3 +266,14 @@ body {
         font-size: 1.75rem;
     }
 }
+
+/* Map */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+    width: 60px;
+}

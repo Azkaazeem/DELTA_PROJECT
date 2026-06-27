@@ -1,4 +1,8 @@
 const Listing = require("../models/listing.js");
+const  mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+const mapToken = process.env.MAPTILER_API;
+
+const baseClient = mbxGeocoding({ accessToken: mapToken });
 
 // LISTINGS CONTROLLERS
 module.exports.index = async (req, res) => {
@@ -21,6 +25,11 @@ module.exports.showListing = async (req, res) => {
 };
 
 module.exports.createListing = async (req, res, next) => {
+    let response = await geocodingClient.forwardGeocode({
+        query: req.body.listing.location,
+        limit: 1,
+    }).send();
+
     let url = req.file ? req.file.path : "";
     let filename = req.file ? req.file.filename : "";
     const newListing = new Listing(req.body.listing);
