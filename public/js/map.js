@@ -1,15 +1,13 @@
-maptilersdk.config.apiKey = mapToken; // mapToken ejs file se aa raha hoga
+maptilersdk.config.apiKey = mapToken;
 
 const map = new maptilersdk.Map({
-  container: 'map', // Jis div mein map dikhana hai uska ID
+  container: 'map', // EJS mein div ki ID
   style: maptilersdk.MapStyle.STREETS,
-  center: listing.geometry.coordinates, // Starting position [lng, lat]
-  zoom: 9 // Starting zoom level
+  center: coordinates, // EJS se aane walay coordinates
+  zoom: 9 
 });
 
-// Map par marker lagane ke liye
+// Map ke upar Red Marker lagane ke liye
 const marker = new maptilersdk.Marker({ color: "#fe424d" })
-  .setLngLat(listing.geometry.coordinates)
-  .setPopup(new maptilersdk.Popup({offset: 25})
-  .setHTML(`<h4>${listing.title}</h4><p>Exact Location will be provided after booking</p>`))
+  .setLngLat(coordinates)
   .addTo(map);
