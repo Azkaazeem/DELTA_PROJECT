@@ -3,7 +3,7 @@
 
 <script>
     const mapToken = "<%= MAPTILER_API %>";
-    const coordinates = <% - listing.geometry ? JSON.stringify(listing.geometry.coordinates) : '[73.0479, 33.6844]' %>;
+    const coordinates = <%- JSON.stringify(listing.geometry ? listing.geometry.coordinates : [73.0479, 33.6844]) %>;
 </script>
 
 <% layout('/layouts/boilerplate.ejs') %>
@@ -42,7 +42,7 @@
         </div>
         <br>
         <br>
-        <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+        <% if(currUser && listing.owner && currUser._id.equals(listing.owner._id)) { %>
             <div class="btns">
                 <a href="/listings/<%= listing._id %>/edit" class="btn btn-success col-1 offset-2">Edit</a>
                 <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
@@ -113,8 +113,8 @@
                     <% } %>
 
                 <div class="col-8 offset-2 mb-3">
-                    <div id="map"></div>
-                </div>
+    <div id="map"></div>
+</div>
     </div>
 
     <script src="/js/map.js"></script>
