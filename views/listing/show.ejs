@@ -1,8 +1,9 @@
-<link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
-<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<link href="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.css" rel="stylesheet" />
+<script src="https://cdn.maptiler.com/maptiler-sdk-js/v1.2.0/maptiler-sdk.umd.js"></script>
 
 <script>
     const mapToken = "<%= MAPTILER_API %>";
+    const coordinates = <% - listing.geometry ? JSON.stringify(listing.geometry.coordinates) : '[73.0479, 33.6844]' %>;
 </script>
 
 <% layout('/layouts/boilerplate.ejs') %>
@@ -111,9 +112,9 @@
                     </div>
                     <% } %>
 
-            <div class="col-8 offset-2 mb-3">
-                <div id="map"></div>
-            </div>
+                <div class="col-8 offset-2 mb-3">
+                    <div id="map"></div>
+                </div>
     </div>
 
     <script src="/js/map.js"></script>
