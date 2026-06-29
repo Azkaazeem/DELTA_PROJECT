@@ -8,6 +8,11 @@
                     flex-wrap: wrap;
                 }
 
+                .filter-link {
+                    text-decoration: none;
+                    color: inherit;
+                }
+
                 .filter {
                     text-align: center;
                     margin-right: 2rem;
@@ -26,63 +31,78 @@
             </style>
 
             <div id="filters">
-                <div class="filter">
-                    <div><i class="fa-solid fa-fire" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Trendings</p>
-                </div>
+                <a href="/listings?category=Trendings" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-fire" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Trendings</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-bed" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Rooms</p>
-                </div>
+                <a href="/listings?category=Rooms" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-bed" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Rooms</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-mountain" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Mountains</p>
-                </div>
+                <a href="/listings?category=Mountains" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-mountain" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Mountains</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-tractor" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Farms</p>
-                </div>
+                <a href="/listings?category=Beach" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-umbrella-beach" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Beach</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-house-chimney" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Villa</p>
-                </div>
+                <a href="/listings?category=Villa" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-house-chimney" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Villa</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-building" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Apartment</p>
-                </div>
+                <a href="/listings?category=Apartment" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-building" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Apartment</p>
+                    </div>
+                </a>
 
-                <!-- 15 New Added Categories -->
-                <div class="filter">
-                    <div><i class="fa-solid fa-umbrella-beach" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Beach</p>
-                </div>
+                <a href="/listings?category=Camping" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-tent" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Camping</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-tent" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Camping</p>
-                </div>
+                <a href="/listings?category=AmazingPools" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-person-swimming" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Amazing Pools</p>
+                    </div>
+                </a>
 
-                <div class="filter">
-                    <div><i class="fa-solid fa-person-swimming" style="color: rgb(0, 0, 0);"></i></div>
-                    <p>Amazing Pools</p>
-                </div>
+                <a href="/listings?category=Castles" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-brands fa-fort-awesome" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Castles</p>
+                    </div>
+                </a>
 
-                <!-- <div class="filter">
-        <div><i class="fa-brands fa-fort-awesome" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Castles</p>
-    </div>
+                <a href="/listings?category=Skiing" class="filter-link">
+                    <div class="filter">
+                        <div><i class="fa-solid fa-person-skiing" style="color: rgb(0, 0, 0);"></i></div>
+                        <p>Skiing</p>
+                    </div>
+                </a>
+            </div>
 
-    <div class="filter">
-        <div><i class="fa-solid fa-person-skiing" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Skiing</p>
-    </div>
-
-    <div class="filter">
+            <!-- <div class="filter">
         <div><i class="fa-solid fa-sailboat" style="color: rgb(0, 0, 0);"></i></div>
         <p>Boats</p>
     </div>
@@ -131,8 +151,8 @@
         <div><i class="fa-solid fa-mug-hot" style="color: rgb(0, 0, 0);"></i></div>
         <p>Bed & Breakfast</p>
     </div> -->
-            </div>
-            
+
+
             <h3>All Listing</h3>
             <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
                 <% for(let listing of allListings) { %>

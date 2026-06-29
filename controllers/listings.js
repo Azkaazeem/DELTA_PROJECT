@@ -2,9 +2,16 @@ const Listing = require("../models/listing.js");
 const maptilerClient = require("@maptiler/client");
 maptilerClient.config.apiKey = process.env.MAPTILER_API;
 
-// LISTINGS CONTROLLERS
 module.exports.index = async (req, res) => {
-    const allListings = await Listing.find({});
+    const { category } = req.query; 
+    
+    let allListings;
+    if (category) {
+        allListings = await Listing.find({ category: category });
+    } else {
+        allListings = await Listing.find({});
+    }
+    
     res.render("./listing/index.ejs", { allListings });
 };
 
