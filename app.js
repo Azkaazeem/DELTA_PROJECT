@@ -46,14 +46,14 @@ app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-app.get("/", (req, res) => {
-    res.send("Running successfully!");
-    console.log("Backend is running successfully!");
-})
+// app.get("/", (req, res) => {
+//     res.send("Running successfully!");
+//     console.log("Backend is running successfully!");
+// })
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
-    crypto: {secret: "mysecretcode"},
+    crypto: {secret: process.env.SECRET_CODE},
     touchAfter: 24 * 3600,
 });
 
@@ -63,7 +63,7 @@ store.on("error" , () => {
 
 const sessionOptions = {
     store,
-    secret: "mysecretString",
+    secret: process.env.SECRET_CODE,
     resave: false,
     saveUninitialized: true,
     cookie: {

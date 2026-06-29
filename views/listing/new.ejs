@@ -1,86 +1,117 @@
 <% layout('/layouts/boilerplate.ejs') %>
-    <div class="row">
-<body>
-    <div class="col=8">
-        <br><br>
-        <h1>Create a new listing</h1>
-        <br>
-        <div class="col=8 offset-2">
-            <form method="POST" action="/listings" enctype="multipart/form-data"> 
-        <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>
-            <div class="valid-feedback">Title looks Good!</div>
-            <div class="invalid-feedback">Please enter valid title!</div> <br />  <br />
-        </div>
-        <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea name="listing[description]" placeholder="enter description" class="form-control" required></textarea>
-            <div class="valid-feedback">Description looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Description!</div> <br />  <br />
-        </div>
-        <div class="mb-3">
-            <label for="image" class="form-label">Image</label>
-            <input name="listing[image]" type="file" class="form-control"/>
-            <div class="valid-feedback">Image looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Image!</div> <br />  <br />
-        </div>
-        <div class="row">
-            <div class="mb-3 col-md-4">
-            <label for="price" class="form-label">Price</label>
-            <input name="listing[price]" placeholder="1200" type="number" class="form-control" required/>
-            <div class="valid-feedback">Price looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Price!</div> <br />  <br />
-        </div>
-        <div class="mb-3 col-md-8">
-            <label for="country" class="form-label">Country</label>
-            <input name="listing[country]" placeholder="Pakistan" type="text" class="form-control" value="Pakistan" required/>
-            <div class="valid-feedback">Country looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Country!</div> <br />  <br />
-        </div>
+<div class="signup-page">
+    <div class="signup-card" style="width: min(100%, 650px);">
+        
+        <div class="signup-brand-mark">
+            <i class="fa-solid fa-house-medical"></i>
         </div>
         
-        <div class="mb-3 ">
-            <label for="location" class="form-label">Location</label>
-            <input name="listing[location]" placeholder="Karachi" type="text" class="form-control" value="Karachi" required/>
-            <div class="valid-feedback">Location looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Location!</div> <br />  <br />
+        <div class="signup-form-header">
+            <div class="signup-kicker">Host a Home</div>
+            <h1>Create a New Listing</h1>
+            <p>Fill out the details below to publish your property.</p>
         </div>
 
-        <div class="mb-3 ">
-            <label for="category" class="form-label">Category</label>
-            <select name="listing[category]" class="form-select" required>
-                <option value="" disabled selected>Select a Category</option>
-                <option value="Trendings">Trendings</option>
-                <option value="Rooms">Rooms</option>
-                <option value="Mountains">Mountains</option>
-                <option value="Farms">Farms</option>
-                <option value="Villa">Villa</option>
-                <option value="Apartment">Apartment</option>
-                <option value="Beach">Beach</option>
-                <option value="Camping">Camping</option>
-                <option value="Amazing Pools">Amazing Pools</option>
-                <option value="Castles">Castles</option>
-                <option value="Skiing">Skiing</option>
-                <option value="Boats">Boats</option>
-                <option value="City Views">City Views</option>
-                <option value="Forest">Forest</option>
-                <option value="Historical">Historical</option>
-                <option value="Lakefront">Lakefront</option>
-                <option value="Desert">Desert</option>
-                <option value="Luxury">Luxury</option>
-                <option value="Tiny Homes">Tiny Homes</option>
-                <option value="Golfing">Golfing</option>
-                <option value="Bed & Breakfast">Bed & Breakfast</option>
-            </select>
-            <div class="valid-feedback">Category looks Good!</div>
-            <div class="invalid-feedback">Please select a valid Category!</div> <br /> <br />
-        </div>
+        <form method="POST" action="/listings" enctype="multipart/form-data" class="signup-form needs-validation" novalidate> 
+            
+            <div class="mb-4">
+                <label for="title" class="form-label">Title</label>
+                <div class="signup-input-group">
+                    <i class="fa-solid fa-heading"></i>
+                    <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required/>
+                </div>
+                <div class="valid-feedback">Title looks Good!</div>
+                <div class="invalid-feedback">Please enter valid title!</div>
+            </div>
 
-        <button class="add-btn">Add</button>
-        <br><br>
-    </form>
-        </div>
+            <div class="mb-4">
+                <label for="description" class="form-label">Description</label>
+                <div class="signup-input-group">
+                    <i class="fa-solid fa-align-left" style="top: 1.5rem; transform: none;"></i>
+                    <textarea name="listing[description]" placeholder="Enter description" class="form-control" style="min-height: 120px; padding-top: 1rem;" required></textarea>
+                </div>
+                <div class="valid-feedback">Description looks Good!</div>
+                <div class="invalid-feedback">Please enter valid Description!</div>
+            </div>
+
+            <div class="mb-4">
+                <label for="image" class="form-label">Image</label>
+                <div class="signup-input-group">
+                    <i class="fa-solid fa-image" style="top: 1.65rem;"></i>
+                    <input name="listing[image]" type="file" class="form-control" style="padding-top: 0.6rem;"/>
+                </div>
+                <div class="valid-feedback">Image looks Good!</div>
+                <div class="invalid-feedback">Please provide a valid Image!</div>
+            </div>
+
+            <div class="row">
+                <div class="mb-4 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <div class="signup-input-group">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        <input name="listing[price]" placeholder="1200" type="number" class="form-control" required/>
+                    </div>
+                    <div class="valid-feedback">Price looks Good!</div>
+                    <div class="invalid-feedback">Please enter valid Price!</div>
+                </div>
+                
+                <div class="mb-4 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <div class="signup-input-group">
+                        <i class="fa-solid fa-globe"></i>
+                        <input name="listing[country]" placeholder="Pakistan" type="text" class="form-control" value="Pakistan" required/>
+                    </div>
+                    <div class="valid-feedback">Country looks Good!</div>
+                    <div class="invalid-feedback">Please enter valid Country!</div>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <label for="location" class="form-label">Location</label>
+                <div class="signup-input-group">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input name="listing[location]" placeholder="Karachi" type="text" class="form-control" value="Karachi" required/>
+                </div>
+                <div class="valid-feedback">Location looks Good!</div>
+                <div class="invalid-feedback">Please enter valid Location!</div>
+            </div>
+
+            <div class="mb-4">
+                <label for="category" class="form-label">Category</label>
+                <div class="signup-input-group">
+                    <i class="fa-solid fa-list"></i>
+                    <select name="listing[category]" class="form-select form-control" style="padding-left: 2.85rem;" required>
+                        <option value="" disabled selected>Select a Category</option>
+                        <option value="Trendings">Trendings</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Beach">Beach</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Amazing Pools">Amazing Pools</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Skiing">Skiing</option>
+                        <option value="Boats">Boats</option>
+                        <option value="City Views">City Views</option>
+                        <option value="Forest">Forest</option>
+                        <option value="Historical">Historical</option>
+                        <option value="Lakefront">Lakefront</option>
+                        <option value="Desert">Desert</option>
+                        <option value="Luxury">Luxury</option>
+                        <option value="Tiny Homes">Tiny Homes</option>
+                        <option value="Golfing">Golfing</option>
+                        <option value="Bed & Breakfast">Bed & Breakfast</option>
+                    </select>
+                </div>
+                <div class="valid-feedback">Category looks Good!</div>
+                <div class="invalid-feedback">Please select a valid Category!</div>
+            </div>
+
+            <button class="signup-btn mt-2">
+                <i class="fa-solid fa-plus" style="position: static; color: white; transform: none;"></i> Add Listing
+            </button>
+        </form>
     </div>
-</body>
-    </div>
+</div>

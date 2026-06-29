@@ -15,15 +15,23 @@
                 </form>
             </div>
 
-            <div class="navbar-nav">
+            <div class="navbar-nav align-items-center gap-2">
                 <a class="nav-link" href="/listings/new">Airbnb your home</a>
                 <% if(!currUser) { %>
-                    <b><a class="nav-link" href="/signup">Signup</a></b>
-                    <b><a class="nav-link" href="/login">Login</a></b>
-                    <% } %>
-                        <% if(currUser) { %>
-                            <b><a class="nav-link" href="/logout">Logout</a></b>
-                            <% } %>
+                    <a class="text-decoration-none" href="/signup">
+                        <button class="nav-btn-red">Sign up</button>
+                    </a>
+                    <a class="text-decoration-none" href="/login">
+                        <button class="nav-btn-white">Log in</button>
+                    </a>
+                <% } %>
+                <% if(currUser) { %>
+                    <a class="text-decoration-none" href="/logout" title="Logout">
+                        <button class="nav-btn-icon">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </button>
+                    </a>
+                <% } %>
             </div>
         </div>
     </div>
