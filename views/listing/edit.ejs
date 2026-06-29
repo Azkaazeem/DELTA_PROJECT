@@ -1,49 +1,84 @@
 <% layout('/layouts/boilerplate.ejs') %>
 
-<body>
-    <br> <br>
-    <h1>Create a new listing</h1>
-    <br>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data"> 
-        <div class="md-3">
-            <label for="title" class="form-label">Title</label>
-            <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
-            <div class="valid-feedback">Title looks Good!</div>
-            <div class="invalid-feedback">Please enter valid title!</div> <br />  <br />
-        </div>
-        <div class="md-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
-            <div class="valid-feedback">Description looks Good!</div>
-            <div class="invalid-feedback">Please enter valid description!</div>   <br /> <br />
-        </div>
-        <div class="mb-3">
-            <h4>Your current Image</h4>
-            <img src="<%= originalImageUrl %>" alt="">
-        </div>
-        <div class="mb-3">
-            <label for="image" class="form-label">Upload your new image</label>
-            <input name="listing[image]" type="file" class="form-control"/>
-        </div>
-        <div class="md-3">
-            <label for="price" class="form-label">Price</label>
-            <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required/>
-            <div class="valid-feedback">Price looks Good!</div>
-            <div class="invalid-feedback">Please enter valid price!</div> <br />  <br />
-        </div>
-        <div class="md-3">
-            <label for="country" class="form-label">Country</label>
-            <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required/>
-            <div class="valid-feedback">Country looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Country!</div> <br />  <br />
-        </div>
-        <div class="md-3">
-            <label for="location" class="form-label">Location</label>
-            <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required/>
-            <div class="valid-feedback">Location looks Good!</div>
-            <div class="invalid-feedback">Please enter valid Location!</div> <br />  <br />
-        </div>
-        <button class="add-btn">Edit</button>
+    <body>
         <br> <br>
-    </form>
-</body>
+        <h1>Create a new listing</h1>
+        <br>
+        <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation"
+            enctype="multipart/form-data">
+            <div class="md-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+                <div class="valid-feedback">Title looks Good!</div>
+                <div class="invalid-feedback">Please enter valid title!</div> <br /> <br />
+            </div>
+            <div class="md-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]" class="form-control"
+                    required><%= listing.description %></textarea>
+                <div class="valid-feedback">Description looks Good!</div>
+                <div class="invalid-feedback">Please enter valid description!</div> <br /> <br />
+            </div>
+            <div class="mb-3">
+                <h4>Your current Image</h4>
+                <img src="<%= originalImageUrl %>" alt="">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload your new image</label>
+                <input name="listing[image]" type="file" class="form-control" />
+            </div>
+            <div class="md-3">
+                <label for="price" class="form-label">Price</label>
+                <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+                <div class="valid-feedback">Price looks Good!</div>
+                <div class="invalid-feedback">Please enter valid price!</div> <br /> <br />
+            </div>
+            <div class="md-3">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control"
+                    required />
+                <div class="valid-feedback">Country looks Good!</div>
+                <div class="invalid-feedback">Please enter valid Country!</div> <br /> <br />
+            </div>
+            <div class="md-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control"
+                    required />
+                <div class="valid-feedback">Location looks Good!</div>
+                <div class="invalid-feedback">Please enter valid Location!</div> <br /> <br />
+            </div>
+
+            <div class="mb-3 ">
+                <label for="category" class="form-label">Category</label>
+                <select name="listing[category]" class="form-select" required>
+                    <option value="" disabled selected>Select a Category</option>
+                    <option value="Trendings">Trendings</option>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Mountains">Mountains</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Amazing Pools">Amazing Pools</option>
+                    <option value="Castles">Castles</option>
+                    <option value="Skiing">Skiing</option>
+                    <option value="Boats">Boats</option>
+                    <option value="City Views">City Views</option>
+                    <option value="Forest">Forest</option>
+                    <option value="Historical">Historical</option>
+                    <option value="Lakefront">Lakefront</option>
+                    <option value="Desert">Desert</option>
+                    <option value="Luxury">Luxury</option>
+                    <option value="Tiny Homes">Tiny Homes</option>
+                    <option value="Golfing">Golfing</option>
+                    <option value="Bed & Breakfast">Bed & Breakfast</option>
+                </select>
+                <div class="valid-feedback">Category looks Good!</div>
+                <div class="invalid-feedback">Please select a valid Category!</div> <br /> <br />
+            </div>
+
+            <button class="add-btn">Edit</button>
+            <br> <br>
+        </form>
+    </body>

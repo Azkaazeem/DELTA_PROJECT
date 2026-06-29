@@ -3,21 +3,45 @@
 
         <body>
             <style>
+                .filters-main {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+
+                .filters-wrap {
+                    display: flex;
+                    align-items: center;
+                    overflow: hidden;
+                    width: 100%;
+                }
+
                 #filters {
                     display: flex;
-                    flex-wrap: wrap;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    overflow-x: auto;
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                    scroll-behavior: smooth;
+                }
+
+                #filters::-webkit-scrollbar {
+                    display: none;
                 }
 
                 .filter-link {
                     text-decoration: none;
                     color: inherit;
+                    flex-shrink: 0;
                 }
 
                 .filter {
                     text-align: center;
                     margin-right: 2rem;
-                    margin-top: 2rem;
-                    opacity: 0.7;
+                    margin-top: 0.5rem;
+                    opacity: 0.6;
                 }
 
                 .filter:hover {
@@ -28,130 +52,207 @@
                 .filter p {
                     font-size: 0.8rem;
                 }
+
+                .slider-btn {
+                    background: white;
+                    border: 1px solid #ddd;
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+                    flex-shrink: 0;
+                    margin: 0 10px;
+                }
+
+                .slider-btn:hover {
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+                }
+
+                .tax-info {
+                    display: none;
+                }
+
+                .tax-toggle {
+                    border: 1px solid black;
+                    border-radius: 1rem;
+                    height: 3.25rem;
+                    padding: 1rem;
+                    margin-left: 1rem;
+                    display: flex;
+                    align-items: center;
+                    flex-shrink: 0;
+                }
             </style>
 
-            <div id="filters">
-                <a href="/listings?category=Trendings" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-fire" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Trendings</p>
-                    </div>
-                </a>
+            <div class="filters-main">
+                <div class="slider-btn" id="slide-left"><i class="fa-solid fa-angle-left"></i></div>
 
-                <a href="/listings?category=Rooms" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-bed" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Rooms</p>
-                    </div>
-                </a>
+                <div class="filters-wrap">
+                    <div id="filters">
+                        <a href="/listings" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-home" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>All</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Mountains" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-mountain" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Mountains</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Trendings" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-fire" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Trendings</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Beach" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-umbrella-beach" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Beach</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Rooms" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-bed" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Rooms</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Villa" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-house-chimney" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Villa</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Mountains" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-mountain" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Mountains</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Apartment" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-building" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Apartment</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Beach" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-umbrella-beach" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Beach</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Camping" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-tent" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Camping</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Villa" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-house-chimney" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Villa</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=AmazingPools" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-person-swimming" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Amazing Pools</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Apartment" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-building" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Apartment</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Castles" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-brands fa-fort-awesome" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Castles</p>
-                    </div>
-                </a>
+                        <a href="/listings?category=Camping" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-tent" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Camping</p>
+                            </div>
+                        </a>
 
-                <a href="/listings?category=Skiing" class="filter-link">
-                    <div class="filter">
-                        <div><i class="fa-solid fa-person-skiing" style="color: rgb(0, 0, 0);"></i></div>
-                        <p>Skiing</p>
+                        <a href="/listings?category=AmazingPools" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-person-swimming" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Amazing Pools</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Castles" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-brands fa-fort-awesome" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Castles</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Skiing" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-person-skiing" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Skiing</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Skiing" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-sailboat" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Boats</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=City Views" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-city" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>City Views</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Forest" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-tree" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Forest</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Historical" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-monument" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Historical</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Lakefront" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-water" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Lakefront</p>
+                            </div>
+                        </a>
+
+                        <a href="/listings?category=Desert" class="filter-link">
+                            <div class="filter">
+                                <div><i class="fa-solid fa-sun" style="color: rgb(0, 0, 0);"></i></div>
+                                <p>Desert</p>
+                            </div>
+
+                            <a href="/listings?category=Luxury" class="filter-link">
+                                <div class="filter">
+                                    <div><i class="fa-solid fa-gem" style="color: rgb(0, 0, 0);"></i></div>
+                                    <p>Luxury</p>
+                                </div>
+                            </a>
+
+                            <a href="/listings?category=Tiny Homes" class="filter-link">
+                                <div class="filter">
+                                    <div><i class="fa-solid fa-house-user" style="color: rgb(0, 0, 0);"></i></div>
+                                    <p>Tiny Homes</p>
+                                </div>
+                            </a>
+
+                            <a href="/listings?category=Golfing" class="filter-link">
+                                <div class="filter">
+                                    <div><i class="fa-solid fa-golf-ball-tee" style="color: rgb(0, 0, 0);"></i></div>
+                                    <p>Golfing</p>
+                                </div>
+                            </a>
+
+                            <a href="/listings?category=Golfing" class="filter-link">
+                                <div class="filter">
+                                    <div><i class="fa-solid fa-mug-hot" style="color: rgb(0, 0, 0);"></i></div>
+                                    <p>Bed & Breakfast</p>
+                                </div>
+                            </a>
+
+
+
                     </div>
-                </a>
+                </div>
+
+                <div class="slider-btn" id="slide-right"><i class="fa-solid fa-angle-right"></i></div>
+
+                <div class="tax-toggle">
+                    <div class="form-check-reverse form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                        <label class="form-check-label" for="switchCheckDefault">Default switch checkbox input</label>
+                    </div>
+                </div>
             </div>
-
-            <!-- <div class="filter">
-        <div><i class="fa-solid fa-sailboat" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Boats</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-city" style="color: rgb(0, 0, 0);"></i></div>
-        <p>City Views</p>
-    </div>
-
-     <div class="filter">
-        <div><i class="fa-solid fa-tree" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Forest</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-monument" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Historical</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-water" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Lakefront</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-sun" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Desert</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-gem" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Luxury</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-house-user" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Tiny Homes</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-golf-ball-tee" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Golfing</p>
-    </div>
-
-    <div class="filter">
-        <div><i class="fa-solid fa-mug-hot" style="color: rgb(0, 0, 0);"></i></div>
-        <p>Bed & Breakfast</p>
-    </div> -->
-
 
             <h3>All Listing</h3>
             <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
@@ -167,7 +268,8 @@
                                         <%= listing.title %>
                                     </b>
                                     <br>
-                                    <%= listing.price.toLocaleString("en-PK") %> / night
+                                    <%= listing.price.toLocaleString("en-PK") %> / night <i class="tax-info">&nbsp;
+                                            &nbsp; +18% GST</i>
                                 </p>
                             </div>
                         </div>
@@ -175,3 +277,60 @@
                     <% } %>
             </div>
         </body>
+
+        <script>
+            let taxSwitch = document.getElementById('switchCheckDefault');
+            taxSwitch.addEventListener("click", () => {
+                let taxInfo = document.getElementsByClassName("tax-info");
+                for (info of taxInfo) {
+                    if (info.style.display != "inline") {
+                        info.style.display = "inline";
+                    } else {
+                        info.style.display = "none";
+                    }
+                }
+            })
+
+            // Slider logic for filters
+            let slideLeft = document.getElementById('slide-left');
+            let slideRight = document.getElementById('slide-right');
+            let filtersContainer = document.getElementById('filters');
+
+            slideLeft.addEventListener('click', () => {
+                filtersContainer.scrollLeft -= 200;
+            });
+
+            slideRight.addEventListener('click', () => {
+                filtersContainer.scrollLeft += 200;
+            });
+
+            // 1. SUNNA (Listening)
+            // Jaise hi page load ho, hamara script search bar aur saare cards ko dhoondh lega
+            document.addEventListener("DOMContentLoaded", () => {
+                const searchInput = document.getElementById("searchInput");
+                // Aapke cards anchor tag <a> mein wrap hote hain jiski class 'listing-link' hoti hai
+                const allCards = document.querySelectorAll(".listing-link");
+
+                if (searchInput) {
+                    // Jaise hi user kuch type karega, yeh function chalega
+                    searchInput.addEventListener("input", function () {
+                        // User ne jo type kiya hai usay lower case (chotay huroof) mein badal lo
+                        const searchedWord = this.value.toLowerCase().trim();
+
+                        // 2. MILANA (Matching)
+                        allCards.forEach(card => {
+                            // Har card ke andar ka text (Title, Location waghera) nikal lo
+                            const cardText = card.innerText.toLowerCase();
+
+                            // Agar card ke text mein wo lafz mojud hai jo user ne type kiya hai
+                            if (cardText.includes(searchedWord)) {
+                                // 3. DIKHANA (Updating)
+                                card.style.display = "block"; // Card dikhao
+                            } else {
+                                card.style.display = "none";  // Card chupao
+                            }
+                        });
+                    });
+                }
+            });
+        </script>
